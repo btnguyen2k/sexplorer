@@ -1,0 +1,12 @@
+MAILTO=""
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin:/usr/local/sbin
+HOME=/home/btnguyen
+
+#run everyhour
+2 * * * *	echo "VACUUM" | psql vnit_wiki
+8 * * * *	echo "VACUUM" | psql vnit
+
+#run everyday at 8AM
+3 8 * * *	echo "VACUUM ANALYZE" | psql vnit_wiki
+23 8 * * *	echo "VACUUM ANALYZE" | psql vnit
